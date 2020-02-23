@@ -34,6 +34,7 @@ public class AdvertServiceImpl implements AdvertService {
         }
 
         Optional<User> user = userService.getUser(advert.get().getUserId());
+
         if (!user.isPresent()){
             throw new NoSuchElementException("User with id " + advert.get().getUserId() + "not found");
         }

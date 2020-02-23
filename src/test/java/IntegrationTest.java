@@ -94,12 +94,6 @@ public class IntegrationTest
                  Assertions.assertEquals(0,activeAdvert.size(),"Active Advert are Displayed. It should be 0");
                  Assertions.assertEquals(2,inActiveAdvert.size(),"Wrong number of Inactive Adverts are being displayed");
              }
-
-             /*if (sellerId[id] == 4) // This seller hasn't posted any ad
-             {
-                 Assertions.assertEquals(0,activeAdvert.size(),"Active Advert are Displayed. It should be 0");
-                 Assertions.assertEquals(0,inActiveAdvert.size(),"Inactive Adverts are Displayed. It should be 0");
-             }*/
          }
      }
 
@@ -161,12 +155,9 @@ public class IntegrationTest
     public void canNot_Repost_Advert_For_Free_Test_UserId_Is_Not_Private()
     {
         // User ID 1 is not private . This fails one of the conditions for re-posting the advert for free
-        // Assertions.assertFalse(advertServImpl.canRepostForFree(1),"Able to Re-post the advert for free");
-
         Throwable exception = assertThrows(IllegalStateException.class,
                 ()->{advertServImpl.repostForFree(1);} );
         Assertions.assertTrue(exception.getMessage().contains("Cannot repost this advert for free"),"Able to re-post the advert for free");
-
     }
 
     @DisplayName("Not able to Re-post for Free - Has got some active Adverts")
@@ -174,7 +165,6 @@ public class IntegrationTest
     public void canNot_Repost_Advert_For_Free_Test_Has_Got_Some_Active_Adverts()
     {
         // User ID 2 is private and has got active adverts. This fails one of the conditions for re-posting the advert for free
-        // Assertions.assertFalse(advertServImpl.canRepostForFree(6),"Able to Re-post the advert for free");
         Throwable exception = assertThrows(IllegalStateException.class,
                 ()->{advertServImpl.repostForFree(6);} );
         Assertions.assertTrue(exception.getMessage().contains("Cannot repost this advert for free"),"Able to re-post the advert for free");
@@ -202,5 +192,4 @@ public class IntegrationTest
                 ()->{advertServImpl.repostForFree(11);} );
         Assertions.assertTrue(exception.getMessage().contains("for free"),"Able to re-post the advert for free");
     }
-
 }
