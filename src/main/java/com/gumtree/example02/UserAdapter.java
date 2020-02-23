@@ -1,7 +1,4 @@
-package service;
-
-import model.DbUser;
-import model.User;
+package com.gumtree.example02;
 
 public interface UserAdapter {
     User adapt(DbUser dbUser);

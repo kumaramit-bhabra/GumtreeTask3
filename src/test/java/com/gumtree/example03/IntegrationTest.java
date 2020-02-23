@@ -1,10 +1,12 @@
-import gateway.*;
-import model.*;
+package com.gumtree.example03;
+
+import com.gumtree.example03.gateway.*;
+import com.gumtree.example03.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import service.*;
+import com.gumtree.example03.service.*;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;

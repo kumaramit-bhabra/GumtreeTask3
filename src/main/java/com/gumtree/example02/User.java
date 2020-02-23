@@ -1,4 +1,4 @@
-package model;
+package com.gumtree.example02;
 
 public class User {
 

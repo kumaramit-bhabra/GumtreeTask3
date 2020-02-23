@@ -1,6 +1,6 @@
-package gateway;
+package com.gumtree.example03.gateway;
 
-import model.DbUser;
+import com.gumtree.example03.model.DbUser;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

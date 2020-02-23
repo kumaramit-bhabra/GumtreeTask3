@@ -1,6 +1,6 @@
-package service;
+package com.gumtree.example03.service;
 
-import model.User;
+import com.gumtree.example03.model.User;
 
 import java.util.Optional;
 

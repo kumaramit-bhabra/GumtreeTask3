@@ -1,7 +1,7 @@
-package service;
+package com.gumtree.example03.service;
 
-import model.DbUser;
-import model.User;
+import com.gumtree.example03.model.DbUser;
+import com.gumtree.example03.model.User;
 
 public class UserAdapterImpl implements UserAdapter {
 

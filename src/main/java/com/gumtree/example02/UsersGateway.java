@@ -1,6 +1,4 @@
-package gateway;
-
-import model.DbUser;
+package com.gumtree.example02;
 
 import java.util.List;
 import java.util.Optional;

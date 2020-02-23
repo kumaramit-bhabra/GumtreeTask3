@@ -1,6 +1,7 @@
-package service;
+package com.gumtree.example03.service;
 
-import model.Advert;
+import com.gumtree.example03.model.Advert;
+
 
 import java.util.List;
 

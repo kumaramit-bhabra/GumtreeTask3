@@ -1,6 +1,6 @@
-package gateway;
+package com.gumtree.example03.gateway;
 
-import model.Advert;
+import com.gumtree.example03.model.Advert;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package model;
+package com.gumtree.example03.model;
 
 public class Advert {
     private final long id;

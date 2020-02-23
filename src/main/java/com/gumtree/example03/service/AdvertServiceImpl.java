@@ -1,8 +1,9 @@
-package service;
+package com.gumtree.example03.service;
 
-import gateway.AdvertsGateway;
-import model.Advert;
-import model.User;
+import com.gumtree.example03.gateway.AdvertsGateway;
+import com.gumtree.example03.model.Advert;
+import com.gumtree.example03.model.User;
+
 
 import java.util.List;
 import java.util.NoSuchElementException;
