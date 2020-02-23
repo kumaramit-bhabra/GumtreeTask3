@@ -17,7 +17,6 @@ public class AdvertServiceImpl implements AdvertService {
     public AdvertServiceImpl(UserService userService, AdvertsGateway advertsGateway) {
         this.userService = userService;
         this.advertsGateway = advertsGateway;
-        System.out.println(this.userService);
     }
 
     @Override
@@ -38,7 +37,6 @@ public class AdvertServiceImpl implements AdvertService {
         if (!user.isPresent()){
             throw new NoSuchElementException("User with id " + advert.get().getUserId() + "not found");
         }
-
 
         long nbNonExpiredAds = getAdverts(user.get().getId()).stream()
                 .filter(ad -> !ad.isExpired())

@@ -24,6 +24,16 @@ public class AdvertsRepository implements AdvertsGateway {
         adverts.put(8L, Advert.Builder.anAdvert().withId(8).withUserId(2).withIsExpired(true).withDescription("A table. That's it").build());
         adverts.put(9L, Advert.Builder.anAdvert().withId(9).withUserId(3).withIsExpired(true).withDescription("Vintage Alice in wonderland doll").build());
         adverts.put(10L, Advert.Builder.anAdvert().withId(10).withUserId(3).withIsExpired(true).withDescription("4 chairs in excellent condition").build());
+
+        //Made the changes. This is for advert present but the account id deleted
+        adverts.put(11L, Advert.Builder.anAdvert().withId(11).withUserId(5).withIsExpired(true).withDescription("The account is deleted").build());
+
+        //This is for seller having only 1 active advert. No Inactive Adverts
+        adverts.put(12L, Advert.Builder.anAdvert().withId(12).withUserId(10).withIsExpired(false).withDescription("Only 1 active Advert").build());
+
+        //This is for seller having more than 1 active advert. No Inactive Adverts
+        adverts.put(13L, Advert.Builder.anAdvert().withId(13).withUserId(11).withIsExpired(false).withDescription("More than 1 active Advert").build());
+        adverts.put(14L, Advert.Builder.anAdvert().withId(14).withUserId(11).withIsExpired(false).withDescription("More than 1 active Advert").build());
     }
 
     public List<Advert> getAll(){

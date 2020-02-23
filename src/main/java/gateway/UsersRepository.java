@@ -37,6 +37,28 @@ public class UsersRepository implements UsersGateway{
                 .withDateCreated(LocalDate.now())
                 .withIsPrivate(true)
                 .build());
+
+        // New User created. This hasn't posted any new adverts
+        users.put(4L, DbUser.Builder.aDbUser().withId(4).withFirstname("Tom").withSurname("H")
+                .withBirthDate(LocalDate.of(1970, 11, 3))
+                .withDateCreated(LocalDate.now())
+                .withDateCreated(LocalDate.now())
+                .withIsPrivate(true)
+                .build());
+
+        users.put(5L, DbUser.Builder.aDbUser().withId(10).withFirstname("Jack").withSurname("S")
+                .withBirthDate(LocalDate.of(1970, 11, 3))
+                .withDateCreated(LocalDate.now())
+                .withDateCreated(LocalDate.now())
+                .withIsPrivate(true)
+                .build());
+
+        users.put(6L, DbUser.Builder.aDbUser().withId(11).withFirstname("Andrew").withSurname("Barker")
+                .withBirthDate(LocalDate.of(1970, 11, 3))
+                .withDateCreated(LocalDate.now())
+                .withDateCreated(LocalDate.now())
+                .withIsPrivate(true)
+                .build());
     }
 
     public List<DbUser> getAll(){
