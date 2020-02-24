@@ -15,17 +15,17 @@ canRepostForFree(sellerID) // Slight correction.. Method implemented is using ad
 canRepostForFree(advertID)
 repostForFree(advertID)
 
-- Seller / user should be able to repost advert for free provided it meets all conditions
-- Seller / user should not be able to repost advert for free as the seller / user is not private
-- Seller / user should not be able to repost advert for free as it has got some active adverts
-- Seller / user should not be able to repost advert for free as advertID is missing / deleted
+- Seller / user should be able to re-post advert for free provided it meets all conditions
+- Seller / user should not be able to re-post advert for free as the seller / user is not private
+- Seller / user should not be able to re-post advert for free as it has got some active adverts
+- Seller / user should not be able to re-post advert for free as advertID is missing / deleted
 	This scenario will happen only in case of user has got 2 active sessions. In one session he/she is amending
 	the advert and from another session advert Id is deleted
 - Seller / user should not be able to repost advert for free as user ID is missing / de-activated
 	This scenario will happen only in case of user has got 2 active sessions. In one session he/she is amending
 	the details and from another session account is de-activated
 
-Pseudo Code
+Test Cases with Pseudo Code
 TC 1 - Validate whether the link to get/see/manage adverts exists or not - This is a functional test from UI perspective
 1. Login via valid Seller ID
 2. If link exists (Placeholder can be one of the links in Main Account)
@@ -35,7 +35,7 @@ TC 1 - Validate whether the link to get/see/manage adverts exists or not - This 
 
 TC 2 - Validate that only one active advert for seller / User is retrieved once he/she clicks on respective link to view the advert.
 
-Pre-Req: Seller / User has posted only 1 Adver and is currently active - Please use Seller Id 10
+Pre-Req: Seller / User has posted only 1 Advert and is currently active - Please use Seller Id 10
 
 1. Using the seller Id retrieve the number of active and inactive adverts.
 2. From retrieved Adverts, if (Number of active adverts == 1 && number of inactive adverts == 0)
@@ -101,7 +101,7 @@ and it's status changes to active
 Pre-Req: Below conditions should be met to repost the advert for free - Please use advert ID 9 (this is expired).
 This is associated with user ID 3 (it's a private) and hasn't got any active adverts
 
-	Advert Id should be present
+	    Advert Id should be present
         User ID associated with the advert should be present
         Advert is expired
         User is private
@@ -117,21 +117,21 @@ This is associated with user ID 3 (it's a private) and hasn't got any active adv
 8. For the selected advert id, change isExpired flag/attribute from 'true' to 'false'
 9. For the seller ID, Get the advert ID and validate that isExpired attribute is changed to 'false'.
 
-TC 9 - Seller / user should not be able to repost advert for free as the seller / user is not private
+TC 9 - Seller / user should not be able to re-post advert for free as the seller / user is not private
 
-Pre-Req: Seller / User has got some adverts which are expired but the profile is not private - Please use advert ID 1(Expired Advert).
-This is associated with user ID 1 which is not private
+Pre-Req: Seller / User is not private and has got some expired adverts - Please use advert ID 1(Expired Advert).
+This is associated with user ID 1 who is not private
 
 1. Pass the advert Id which needs to re-posted (Expired advert)
 2. Get the advert and validate whether the advert is present.
 3. From the advert retrieve user ID and validate it's present
 4. For associated userID, Validate that no active adverts are present
-5. As the User ID is not private, an exception should be thrown and should not be able to repost the advert for free
+5. As the User ID is not private, an exception should be thrown and should not be able to re-post the advert for free
 
-TC 10 - Seller / user should not be able to repost advert for free as it has got some active adverts
+TC 10 - Seller / user should not be able to re-post advert for free as it has got some active adverts
 
-Pre-Req: Seller / User has got some adverts which are active but the profile is private - Please use advert ID 6(Expired Advert).
-This is associated with user ID 2 having private profile but it has got some active adverts
+Pre-Req: Seller / User is private and has got some active adverts  - Please use advert ID 6(Expired Advert).
+This is associated with user ID 2 having private profile and having some active adverts
 
 1. Pass the advert Id which needs to re-posted (Expired advert)
 2. Get the advert and validate whether the advert is present.
@@ -139,7 +139,7 @@ This is associated with user ID 2 having private profile but it has got some act
 4. For associated userID, Validate that no active adverts are present
 5. As the User has got some active adverts, an exception should be thrown and should not be able to repost the advert for free
 
-TC 11 - Seller / user should not be able to repost advert for free as advertID is missing / deleted
+TC 11 - Seller / user should not be able to re-post advert for free as advertID is missing / deleted
 
 Pre-Req: This scenario can happen in case user has got 2 active sessions. In one session he/she is amending the advert
 and from another session advert Id is deleted. Please use the advert ID which is not existing in the repository (Please use Advert ID = 50)
@@ -150,12 +150,12 @@ and from another session advert Id is deleted. Please use the advert ID which is
 4. As the advert is already deleted an exception should be thrown stating the Advert not found.
 
 
-TC 12 - Seller / user should not be able to repost advert for free as User Account is deleted  / de-activated
+TC 12 - Seller / user should not be able to re-post advert for free as User Account is deleted  / de-activated
 
 Pre-Req: This scenario can happen in case user has got 2 active sessions. In one session he/she is amending the advert and
 from another session account is de-activated. Please use the advert ID which is not existing in the repository (Please use Advert ID = 11)
 
 1. Open 2 sessions, From one session Pass the advert Id which needs to re-posted (Expired advert)
 2. From another session de-activate the account
-3. From the first session try to repost this advert
+3. From the first session try to re-post this advert
 4. As the account is already de-activated an exception should be thrown stating the Advert can not be reposted for free.
