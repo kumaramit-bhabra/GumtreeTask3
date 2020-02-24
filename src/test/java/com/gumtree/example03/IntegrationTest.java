@@ -41,9 +41,10 @@ public class IntegrationTest
      public void get_adverts_test()
      {
          long sellerId[] = {10, 11, 2, 3};
+         System.out.println("Details for get Adverts Test");
+
          for(int id = 0 ; id < sellerId.length; id++)
          {
-             System.out.println("Seller Id is #####" + sellerId[id]);
              List<Advert> advertConsolidatedList = advertServImpl.getAdverts(sellerId[id]);
              ArrayList<Advert> activeAdvert = new ArrayList<Advert>();
              ArrayList<Advert> inActiveAdvert = new ArrayList<Advert>();
@@ -54,24 +55,10 @@ public class IntegrationTest
                  else
                      activeAdvert.add(advertConsolidatedList.get(i));
              }
+             System.out.println("Advert breakdown for seller ### " + sellerId[id]);
              System.out.println("Number of Active Advert  ## " + activeAdvert.size());
-             System.out.println("Number of Active Advert  ## " + inActiveAdvert.size());
+             System.out.println("Number of InActive Advert  ## " + inActiveAdvert.size() + "\n");
 
-             /* This is for displaying the advert description
-             if (activeAdvert.size() > 0) {
-                 System.out.println("Number of Active Advert  ## " + activeAdvert.size());
-
-                 for (int j = 0; j < activeAdvert.size(); j++) {
-                     System.out.println("Advert Description is ## " + activeAdvert.get(j).getDescription());
-                 }
-             }
-
-             if (inActiveAdvert.size() > 0) {
-                 System.out.println("Number of Inactive Advert ## " + inActiveAdvert.size());
-                 for (int k = 0; k < inActiveAdvert.size(); k++) {
-                     System.out.println("Advert Description is ## " + inActiveAdvert.get(k).getDescription());
-                 }
-             }*/
 
              if (sellerId[id] == 10) // This seller has posted only 1 advert and it's active . 0 inactive adverts
              {
@@ -132,6 +119,7 @@ public class IntegrationTest
         boolean isExpired = true;
         List<Advert> advertListBeforeChange = advertServImpl.getAdverts(sellerID);
 
+        System.out.println("Details for Re-post Advert for free");
         for(int i = 0 ; i < advertListBeforeChange.size(); i++)
         {
             System.out.println("Before making the Change");
@@ -145,7 +133,7 @@ public class IntegrationTest
         {
             if(advertListAfterChange.get(l).getId() == advertID) {
                 isExpired = advertListAfterChange.get(l).isExpired();
-                System.out.println("After reposting Advert ID " + advertID + ". Is Advert Expired? " + isExpired);
+                System.out.println("After re-posting Advert ID " + advertID + ". Is Advert Expired? " + isExpired);
                 break;
             }
         }
